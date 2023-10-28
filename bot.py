@@ -61,7 +61,7 @@ async def incoming_message(message: aiogram.types.Message):
     if dt_upto is None:
         return await message.reply('Не верный формат параметра ```dt_upto```', parse_mode='Markdown')
 
-    await message.reply('...Ответ...')
+    await message.reply(await database.calculate(dt_from, dt_upto, input_data_dict["group_type"]))
 
 
 if __name__ == '__main__':
